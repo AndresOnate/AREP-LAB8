@@ -24,6 +24,7 @@ dependency-reduced-pom.xml
 buildNumber.properties
 .mvn/timing.properties
 .mvn/wrapper/maven-wrapper.jar
+.mvn
 
 ##############################
 ## Gradle
@@ -91,3 +92,6 @@ nb-configuration.xml
 
 # Plugin directory
 /.quarkus/cli/plugins/
+
+mvnw
+mvnw.cmd
