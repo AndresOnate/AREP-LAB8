@@ -6,6 +6,7 @@ import jakarta.enterprise.context.RequestScoped;
 import jakarta.inject.Inject;
 import jakarta.ws.rs.GET;
 import jakarta.ws.rs.InternalServerErrorException;
+import jakarta.ws.rs.POST;
 import jakarta.ws.rs.Path;
 import jakarta.ws.rs.Produces;
 import jakarta.ws.rs.core.Context;
@@ -16,9 +17,14 @@ import org.eclipse.microprofile.jwt.Claim;
 import org.eclipse.microprofile.jwt.Claims;
 import org.eclipse.microprofile.jwt.JsonWebToken;
 
+import edu.eci.arep.lab8.model.Post;
+import edu.eci.arep.lab8.model.Stream;
+
 @Path("/notTwitter")
 @RequestScoped
 public class Main {
+
+    private Stream stream = new Stream();
 
     @Inject
     JsonWebToken jwt;
@@ -40,9 +46,21 @@ public class Main {
     // }
 
     @GET
-    @Path("home")
+    @Path("stream")
     @PermitAll
+    @Produces(MediaType.APPLICATION_JSON)
+    public String stream(@Context SecurityContext ctx) {
+        return stream.toString();
+    }
+
+    @POST
+    @Path("addPost")
+    @RolesAllowed({ "User", "Admin" })
     @Produces(MediaType.TEXT_PLAIN)
+    public String addPost(@Context SecurityContext ctx, Post post) {
+        stream.addPost(post);
+        return "Post added";
+    }
 
     private String getResponseString(SecurityContext ctx) {
         String name;
