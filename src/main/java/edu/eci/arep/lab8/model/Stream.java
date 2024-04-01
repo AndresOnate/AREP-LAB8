@@ -15,13 +15,19 @@ public class Stream {
         stream.push(post);
     }
 
-    public String toString() {
-        String res = "";
+    public String toJSON() {
+        String res = "{";
         Iterator<Post> iterator = stream.iterator();
-        while (iterator.hasNext()) {
+        // Se extraen los posts y se agregan a una coleccion JSON
+        while (iterator.hasNext()) { 
             Post post = iterator.next();
-            res += post.getOwner().getUsername() + "\n " + post.getContent() + "\n";
+            res += "{\"owner\":\"" + post.getOwner().getUsername() + "\"," +
+                        "\"content\":\"" + post.getContent() + "\"},";
         }
+        // Se elimina la utlima coma restante --> ...},
+        res = res.substring(0, res.length() - 1);
+        // Se cierra el JSON
+        res += "}";
         return res;
     }
 }
