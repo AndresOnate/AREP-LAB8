@@ -1,6 +1,7 @@
 package edu.eci.arep.lab8;
 
 import jakarta.annotation.security.PermitAll;
+import jakarta.annotation.security.RolesAllowed;
 import jakarta.enterprise.context.RequestScoped;
 import jakarta.inject.Inject;
 import jakarta.ws.rs.GET;
@@ -8,6 +9,7 @@ import jakarta.ws.rs.InternalServerErrorException;
 import jakarta.ws.rs.POST;
 import jakarta.ws.rs.Path;
 import jakarta.ws.rs.Produces;
+import jakarta.ws.rs.core.Context;
 import jakarta.ws.rs.core.MediaType;
 import jakarta.ws.rs.core.SecurityContext;
 
@@ -15,6 +17,7 @@ import org.eclipse.microprofile.jwt.JsonWebToken;
 
 import edu.eci.arep.lab8.model.Post;
 import edu.eci.arep.lab8.model.Stream;
+import edu.eci.arep.lab8.model.User;
 
 @Path("/notTwitter")
 @RequestScoped
@@ -25,28 +28,12 @@ public class Main {
     @Inject
     JsonWebToken jwt;
 
-    // @GET
-    // @Path("permit-all")
-    // @PermitAll
-    // @Produces(MediaType.TEXT_PLAIN)
-    // public String hello(@Context SecurityContext ctx) {
-    // return getResponseString(ctx);
-    // }
-
-    // @GET
-    // @Path("roles-allowed-admin")
-    // @RolesAllowed("Admin")
-    // @Produces(MediaType.TEXT_PLAIN)
-    // public String helloRolesAllowedAdmin(@Context SecurityContext ctx) {
-    // return getResponseString(ctx) + ", birthdate: " + birthdate;
-    // }
-
     @GET
     @Path("stream")
     @PermitAll
     @Produces(MediaType.APPLICATION_JSON)
     public String stream(@Context SecurityContext ctx) {
-        return stream.toString();
+        return stream.toJSON();
     }
 
     @POST
