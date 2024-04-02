@@ -2,16 +2,16 @@ package edu.eci.arep.lab8.model;
 
 public class Post {
 
-    private User owner;
+    private String userId;
     private String content;
 
-    public Post(User owner, String content) {
-        this.owner = owner;
+    public Post(String userId, String content) {
+        this.userId = userId;
         this.content = content;
     }
 
-    public User getOwner() {
-        return owner;
+    public String getOwner() {
+        return userId;
     }
 
     public String getContent() {

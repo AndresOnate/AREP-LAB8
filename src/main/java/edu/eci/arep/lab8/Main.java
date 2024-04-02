@@ -16,34 +16,34 @@ import jakarta.ws.rs.core.SecurityContext;
 import org.eclipse.microprofile.jwt.JsonWebToken;
 
 import edu.eci.arep.lab8.model.Post;
-import edu.eci.arep.lab8.model.Stream;
 import edu.eci.arep.lab8.model.User;
+import edu.eci.arep.lab8.service.StreamService;
 
 @Path("/notTwitter")
 @RequestScoped
 public class Main {
 
-    private Stream stream = new Stream();
+    private StreamService stream = new StreamService();
 
     @Inject
     JsonWebToken jwt;
 
-    @GET
-    @Path("stream")
-    @PermitAll
-    @Produces(MediaType.APPLICATION_JSON)
-    public String stream(@Context SecurityContext ctx) {
-        return stream.toJSON();
-    }
+    // @GET
+    // @Path("stream")
+    // @PermitAll
+    // @Produces(MediaType.APPLICATION_JSON)
+    // public String stream(@Context SecurityContext ctx) {
+    //     return stream.toJSON();
+    // }
 
-    @POST
-    @Path("addPost")
-    @RolesAllowed({ "User", "Admin" })
-    @Produces(MediaType.TEXT_PLAIN)
-    public String addPost(@Context SecurityContext ctx, Post post) {
-        stream.addPost(post);
-        return "Post added";
-    }
+    // @POST
+    // @Path("addPost")
+    // @RolesAllowed({ "User", "Admin" })
+    // @Produces(MediaType.TEXT_PLAIN)
+    // public String addPost(@Context SecurityContext ctx, Post post) {
+    //     stream.addPost(post);
+    //     return "Post added";
+    // }
 
     private String getResponseString(SecurityContext ctx) {
         String name;
