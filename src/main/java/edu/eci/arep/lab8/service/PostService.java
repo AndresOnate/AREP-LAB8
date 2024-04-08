@@ -4,12 +4,13 @@ import java.util.ArrayList;
 import java.util.List;
 
 import edu.eci.arep.lab8.model.Post;
+import edu.eci.arep.lab8.model.Stream;
 import jakarta.enterprise.context.ApplicationScoped;
 
 @ApplicationScoped
 public class PostService {
 
-    private static List<Post> DB = new ArrayList<>();
+    private Stream stream = new Stream();
 
     /** 
     public static String getAllPosts(){
@@ -31,11 +32,10 @@ public class PostService {
     **/  
 
     public List<Post> getPosts(){
-        return DB;
+        return stream.getPosts();
     }
 
     public Post savePost(Post post){
-        DB.add(post);
-        return post;
+        return stream.add(post);
     }
 }
