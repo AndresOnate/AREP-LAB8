@@ -5,6 +5,8 @@ public class Post {
     private User owner;
     private String content;
 
+    public Post(){}
+
     public Post(User owner, String content) {
         this.owner = owner ;
         this.content = content;

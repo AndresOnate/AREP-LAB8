@@ -1,5 +1,6 @@
 package edu.eci.arep.lab8.controller;
 
+import com.mongodb.client.MongoDatabase;
 import jakarta.ws.rs.Produces;
 import java.util.List;
 import com.google.gson.Gson;
@@ -19,10 +20,9 @@ public class StreamController {
     @GET
     @Produces(MediaType.APPLICATION_JSON)
     public String getPosts() {
-        List<Post> posts = postService.getPosts();
-        Gson gson = new Gson();
-        String jsonArray = gson.toJson(posts);
-        return jsonArray;
+        MongoDatabase database = MongoUtil.getDB();
+        PostDAO postDAO = new PostDAO(database);
+        return postDAO.listPost();
     }
     
 }
