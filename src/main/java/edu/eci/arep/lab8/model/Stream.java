@@ -2,6 +2,7 @@ package edu.eci.arep.lab8.model;
 
 import org.jboss.logging.annotations.Pos;
 
+import java.util.ArrayList;
 import java.util.List;
 
 public class Stream {
@@ -9,9 +10,9 @@ public class Stream {
     public Stream(){}
 
 
-    private List<Post> posts;
+    private ArrayList<Post> posts = new ArrayList<>();
 
-    public Stream(List<Post> posts) {
+    public Stream(ArrayList<Post> posts) {
         this.posts = posts;
     }
 
@@ -24,7 +25,7 @@ public class Stream {
         return posts;
     }
 
-    public void setPosts(List<Post> posts) {
+    public void setPosts(ArrayList<Post> posts) {
         this.posts = posts;
     }
 
