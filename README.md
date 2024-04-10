@@ -1,54 +1,68 @@
-# TAREA DE MICROSERVICIOS
+# TALLER DE MICROSERVICIOS
 
-This project uses Quarkus, the Supersonic Subatomic Java Framework.
+En este taller se implementó un sistema de publicación de posts de hasta 140 caracteres, similar al funcionamiento de Twitter. El sistema está construido utilizando Quarkus, un framework de Java diseñado para aplicaciones nativas en la nube. 
+Se ha implementado como un monolito inicialmente, luego dividido en tres microservicios independientes utilizando AWS Lambda.
 
-If you want to learn more about Quarkus, please visit its website: https://quarkus.io/ .
+## Diseño de la aplicación 
 
-## Running the application in dev mode
+La aplicación está diseñada para cumplir con los requisitos especificados en el enunciado del taller y proporcionar una experiencia de usuario fluida y satisfactoria.
+El primer paso para el desarrollo de este laboratorio, fue la implementación de un monolito haciendo uso del
+frameworj Quarkus.  A continuación, se describen los principales componentes y características de la aplicación:
 
-You can run your application in dev mode that enables live coding using:
+- Se implementaron tres entidades fundamentales para el sistema: `Post`, `Stream` y `User`. 
+
+- La clase `Post` representa cada publicación realizada en el sistema, con atributos que incluyen el propietario y el contenido del post. 
+
+- La clase `Stream` encapsula una colección de posts, ofreciendo métodos para agregar y obtener posts. 
+
+- La clase `User` proporciona la estructura necesaria para representar a los usuarios del sistema, incluyendo atributos como el nombre de usuario y la contraseña. Estos objetos User son fundamentales para identificar a los propietarios de los posts.
+
+- La clase `PostController` es un controlador REST diseñado para manejar las solicitudes relacionadas con la entidad `Post`.
+  Dentro de esta clase, se encuentra el método `savePost`,  el cual se encarga de recibir las solicitudes de los usuarios para publicar posts en el sistema y guardar la información en la capa de persistencia correspondiente. 
+
+- La clase `StreamController` es un controlador REST diseñado para manejar las solicitudes relacionadas con la obtención de posts desde el sistema. Esta clase incluye el método `getPosts`, el cual se encarga de recuperar los posts almacenados en el sistema y devolverlos en formato JSON como respuesta a la solicitud.
+
+- La clase `UserController` es un controlador REST diseñado para manejar las solicitudes relacionadas con la gestión de usuarios en el sistema
+
+-  Para el monolito en Quarkus, se implementó la capa de persistencia en las clases Services de cada uno de los controladores. Para el despliegue en AWS, se hace uso de una base de datos Mongo.
+
+## Guía de Inicio
+
+Las siguientes instrucciones le permitirán descargar una copia y ejecutar la aplicación en su máquina local.
+
+### Prerrequisitos
+
+- Java versión 8 OpenJDK
+- Maven
+- Git
+
+1. Ubíquese sobre el directorio donde desea realizar la descarga y ejecute el siguiente comando:
+
 ```shell script
-./mvnw compile quarkus:dev
+  git clone https://github.com/Mateo0laya/AREP-Lab8-Microservices.git 
+```
+2. Navegue al directorio del proyecto:
+
+```shell script
+cd AREP-Lab8-Microservices
 ```
 
-> **_NOTE:_**  Quarkus now ships with a Dev UI, which is available in dev mode only at http://localhost:8080/q/dev/.
+3. Ejecute el siguiente comando para compilar el código:
 
-## Packaging and running the application
-
-The application can be packaged using:
 ```shell script
-./mvnw package
-```
-It produces the `quarkus-run.jar` file in the `target/quarkus-app/` directory.
-Be aware that it’s not an _über-jar_ as the dependencies are copied into the `target/quarkus-app/lib/` directory.
-
-The application is now runnable using `java -jar target/quarkus-app/quarkus-run.jar`.
-
-If you want to build an _über-jar_, execute the following command:
-```shell script
-./mvnw package -Dquarkus.package.type=uber-jar
+mvn compile
 ```
 
-The application, packaged as an _über-jar_, is now runnable using `java -jar target/*-runner.jar`.
-
-## Creating a native executable
-
-You can create a native executable using: 
+4. Para iniciar el servidor, ejecute el siguiente comando:
 ```shell script
-./mvnw package -Dnative
+mvn compile quarkus:dev
 ```
 
-Or, if you don't have GraalVM installed, you can run the native executable build in a container using: 
-```shell script
-./mvnw package -Dnative -Dquarkus.native.container-build=true
-```
+## Probando la Aplicación.
 
-You can then execute your native executable with: `./target/arep-lab8-microservices-1.0.0-SNAPSHOT-runner`
+Ingrese a la siguiente URL para ingresar a el cliente: http://localhost:8080/index.html.
 
-If you want to learn more about building native executables, please consult https://quarkus.io/guides/maven-tooling.
+![img.png](img/img.png)
 
-## Related Guides
+Ingrese la mensaje a postear:
 
-- REST Jackson ([guide](https://quarkus.io/guides/rest#json-serialisation)): Jackson serialization support for RESTEasy Reactive. This extension is not compatible with the quarkus-resteasy extension, or any of the extensions that depend on it
-- SmallRye JWT Build ([guide](https://quarkus.io/guides/security-jwt-build)): Create JSON Web Token with SmallRye JWT Build API
-- SmallRye JWT ([guide](https://quarkus.io/guides/security-jwt)): Secure your applications with JSON Web Token
