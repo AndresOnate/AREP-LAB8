@@ -6,13 +6,8 @@ document.addEventListener("DOMContentLoaded", function() {
         const postText = document.getElementById('post-text').value;
         if (postText.trim() !== ''  && postText.length <= 140) {
 			
-			const user = {
-				username : 'Andres',
-				password : 'daPassword'
-			}
-
             const postData = {
-                owner: user,
+                owner: getUserEmail(),
                 content: postText
             };
 			
@@ -64,7 +59,7 @@ function addPostToPage(post) {
 	
 	
     const postOwner = document.createElement('p');
-    postOwner.textContent = 'Autor : ' + getUserEmail();
+    postOwner.textContent = 'Autor : ' + post.owner;
     postdiv.appendChild(postOwner);
 
 	const postText = document.createElement('p');
