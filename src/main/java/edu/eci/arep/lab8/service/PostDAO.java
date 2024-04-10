@@ -23,7 +23,7 @@ public class PostDAO {
     }
 
     public void addPost(Post post) {
-        Document newPost = new Document("content", post.getContent());
+        Document newPost = new Document("owner", post.getOwner()).append("content", post.getContent());
         postsCollection.insertOne(newPost);
     }
 
