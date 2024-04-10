@@ -1,13 +1,18 @@
 document.addEventListener("DOMContentLoaded", function() {
+	validateToken();
     getPosts();
-    validateToken();
 
     document.getElementById('post-button').addEventListener('click', function() {
         const postText = document.getElementById('post-text').value;
         if (postText.trim() !== ''  && postText.length <= 140) {
+			
+			const user = {
+				username : 'Andres',
+				password : 'daPassword'
+			}
 
             const postData = {
-                owner: getUserEmail(),
+                owner: user,
                 content: postText
             };
 			
@@ -15,7 +20,7 @@ document.addEventListener("DOMContentLoaded", function() {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json',
-					'Authorization' : localStorage.getItem('ACCESS-TOKEN')
+					'Authorization' : '' + localStorage.getItem('ACCESS-TOKEN')
                 },
                 body: JSON.stringify(postData)
             })
@@ -38,11 +43,14 @@ document.addEventListener("DOMContentLoaded", function() {
 function getPosts() {
     fetch('https://kbbu4x3jxa.execute-api.us-east-1.amazonaws.com/dev/streams', {
 		method: 'GET',
-		headers: 'Authorization' : localStorage.getItem('ACCESS-TOKEN')
-	})
+		headers: {
+			'Authorization' : '' + localStorage.getItem('ACCESS-TOKEN')
+			}
+		})
         .then(response => response.json())
         .then(posts => {
             document.getElementById('post-list').innerHTML = '';
+			posts = JSON.parse(posts);
             posts.reverse().forEach(post => {
                 addPostToPage(post);
             });
@@ -50,21 +58,21 @@ function getPosts() {
         .catch(error => console.error('Error al obtener los posts:', error));
 }
 
-function addposttopage(post) {
-    const postdiv = document.createelement('div');
+function addPostToPage(post) {
+    const postdiv = document.createElement('div');
     postdiv.classname = 'post';
 	
 	
-    const postOwner = document.createelement('p');
-    postOwner.textcontent = 'Autor : ' + getUserEmail();
-    postdiv.appendchild(postOwner);
+    const postOwner = document.createElement('p');
+    postOwner.textContent = 'Autor : ' + getUserEmail();
+    postdiv.appendChild(postOwner);
 
-	const postText = document.createelement('p');
-    postText.textcontent = 'Autor: ' + post.content;
-    postdiv.appendchild(postText);
-    document.getelementbyid('post-list').appendchild(postdiv);
+	const postText = document.createElement('p');
+    postText.textContent = 'Message: ' + post.content;
+    postdiv.appendChild(postText);
+    document.getElementById('post-list').appendChild(postdiv);
 }
-
+//
 function validateToken(){
     var accessToken = localStorage.getItem('ACCESS-TOKEN');
     if (!accessToken) {
@@ -76,6 +84,7 @@ function validateToken(){
         }
     }
 }
+
 
 function getAccessTokenFromUrl() {
     var fragment = window.location.hash.substring(1);
