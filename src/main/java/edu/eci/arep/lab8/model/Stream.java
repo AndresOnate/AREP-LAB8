@@ -7,9 +7,7 @@ import java.util.List;
 public class Stream {
 
     public Stream(){}
-
-
-    private List<Post> posts;
+        private List<Post> posts;
 
     public Stream(List<Post> posts) {
         this.posts = posts;

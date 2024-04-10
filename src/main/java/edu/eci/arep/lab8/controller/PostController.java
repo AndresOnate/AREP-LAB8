@@ -1,7 +1,8 @@
 package edu.eci.arep.lab8.controller;
 
 import edu.eci.arep.lab8.model.Post;
-import edu.eci.arep.lab8.service.PostService;
+import edu.eci.arep.lab8.service.PostDAO;
+import edu.eci.arep.lab8.util.MongoUtil;
 import jakarta.inject.Inject;
 import jakarta.ws.rs.Consumes;
 import jakarta.ws.rs.POST;
@@ -12,9 +13,6 @@ import com.mongodb.client.MongoDatabase;
 
 @Path("/posts")
 public class PostController {
-
-    @Inject
-    PostService postService;
 
     @POST
     @Consumes(MediaType.APPLICATION_JSON)

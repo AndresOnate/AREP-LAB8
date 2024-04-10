@@ -1,4 +1,4 @@
-package edu.eci.arep.lab8.controller;
+package edu.eci.arep.lab8.service;
 
 import com.mongodb.client.MongoCollection;
 import com.mongodb.client.MongoDatabase;

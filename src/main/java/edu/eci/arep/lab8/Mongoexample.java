@@ -1,9 +1,9 @@
-package edu.eci.arep.lab8.controller;
+package edu.eci.arep.lab8;
 
 import com.mongodb.client.MongoDatabase;
+import edu.eci.arep.lab8.util.MongoUtil;
+import edu.eci.arep.lab8.service.PostDAO;
 import edu.eci.arep.lab8.model.Post;
-
-import java.util.Date;
 
 
 public class Mongoexample {
