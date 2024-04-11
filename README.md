@@ -44,25 +44,30 @@ Las siguientes instrucciones le permitirán descargar una copia y ejecutar la ap
 2. Navegue al directorio del proyecto:
 
 ```shell script
-cd AREP-Lab8-Microservices
+  cd AREP-Lab8-Microservices
 ```
 
 3. Ejecute el siguiente comando para compilar el código:
 
 ```shell script
-mvn compile
+  mvn compile
 ```
 
 4. Para iniciar el servidor, ejecute el siguiente comando:
 ```shell script
-mvn compile quarkus:dev
+  mvn compile quarkus:dev
 ```
 
 ## Probando la Aplicación.
 
-Ingrese a la siguiente URL para ingresar a el cliente: http://localhost:8080/index.html.
+Ingrese a la siguiente URL para ingresar a el cliente: `http://localhost:8080/index.html`.
 
 ![img.png](img/img.png)
 
 Ingrese la mensaje a postear:
 
+![image](https://github.com/Mateo0laya/AREP-Lab8-Microservices/assets/63562181/dce40e6a-816c-4c33-86f0-b7f4af652dd0)
+
+De clic en el botón `Postear`,  podrá observar que los mensajes se muestran en la parte inferior.
+
+![image](https://github.com/Mateo0laya/AREP-Lab8-Microservices/assets/63562181/48eda60a-5e4b-4289-ad2d-2cfe5f708ba8)
