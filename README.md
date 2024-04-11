@@ -80,6 +80,44 @@ A continuación, se describe la arquitectura de la aplicación en Amazon Web Ser
 
 ![image](https://github.com/Mateo0laya/AREP-Lab8-Microservices/assets/63562181/c0b57c98-eecd-4592-bf3c-4b620216a969)
 
+## Funciones Lambda
+
+Se desplegaron dos microservicios utilizando funciones Lambda de AWS. Estos microservicios establecen conexión con una base de datos MongoDB para almacenar y gestionar los datos de la aplicación.
+Para cada uno de los microservicios, se compiló el proyecto ubicado en la rama `cloud` del repositorio para generar un JAR con todas las dependencias necesarias para su despliegue en AWS Lambda.
+
+`post-function`: Esta función Lambda implementa la lógica para almacenar los posts en la base de datos MongoDB. Cuando se invoca, recibe un nuevo post como entrada y lo guarda en la base de datos para su posterior recuperación y visualización. Es responsable de asegurar que los posts enviados por los usuarios se almacenen correctamente en la base de datos para su uso posterior. Se mapeó el método `savePost` de la clase `PostController` para este microservicio.
+
+![image](https://github.com/Mateo0laya/AREP-Lab8-Microservices/assets/63562181/a87a4660-76fa-4e39-ab0f-1e6afebbb29b)
+
+`stream-function`: Esta función Lambda se encarga de proporcionar información sobre los posts almacenados en la base de datos MongoDB. Se mapeó el método `getPosts` de la clase `StreamController` para este microservicio. Al ser invocado, este método recupera los posts de la base de datos y los devuelve como respuesta al cliente que realizó la solicitud.
+
+![image](https://github.com/Mateo0laya/AREP-Lab8-Microservices/assets/63562181/9dbe887a-be0d-4cb7-aaf9-0885c8bee974)
+
+El uso de funciones Lambda de AWS permite una arquitectura sin servidor, escalable y de alto rendimiento.
+
+### Pruebas
+
+`post-function`: Se envía un nuevo post en formato JSON. Este será tomado por la clase tras la consulta y registrado en la base de datos. Si la ejecución es correcta, devolverá una respuesta HTTP con código 201.
+
+![image](https://github.com/Mateo0laya/AREP-Lab8-Microservices/assets/63562181/b1a98bae-910b-4e99-804b-5ea96cda049b)
+
+`stream-function`: No requiere input. Obtiene todos los registros de la base de datos.
+
+![image](https://github.com/Mateo0laya/AREP-Lab8-Microservices/assets/63562181/af531544-2d46-4ab0-9127-c4d18021d264)
+
+
+## Amazon S3
+
+Utilizamos Amazon S3 para almacenar nuestros archivos estáticos, como HTML, CSS, JavaScript e imágenes. Esto nos permite distribuir y servir estos archivos de manera eficiente a través de internet para nuestra aplicación web. Creamos un bucket `bucket-not-twitter` para nuestra aplicación:
+
+![image](https://github.com/Mateo0laya/AREP-Lab8-Microservices/assets/63562181/5a035e79-5483-4e95-9c13-778e0ddd88ff)
+
+
+
+
+
+
+
 
 
 ## Construido Con. 
