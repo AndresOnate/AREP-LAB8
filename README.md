@@ -78,7 +78,8 @@ A continuación, se describe la arquitectura de la aplicación en Amazon Web Ser
 
 ## Arquitectura
 
-![image](https://github.com/Mateo0laya/AREP-Lab8-Microservices/assets/63562181/c0b57c98-eecd-4592-bf3c-4b620216a969)
+![image](https://github.com/Mateo0laya/AREP-Lab8-Microservices/assets/63562181/250e0690-9a9e-4cf3-ac93-6c88fac90ca0)
+
 
 ## Funciones Lambda
 
