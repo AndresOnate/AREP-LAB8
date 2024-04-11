@@ -72,9 +72,16 @@ De clic en el botón `Postear`,  podrá observar que los mensajes se muestran en
 
 ![image](https://github.com/Mateo0laya/AREP-Lab8-Microservices/assets/63562181/48eda60a-5e4b-4289-ad2d-2cfe5f708ba8)
 
+# Despliegue en Amazon Web Services
+
+A continuación, se describe la arquitectura de la aplicación en Amazon Web Services (AWS). La aplicación se despliega en la infraestructura de la nube de AWS para garantizar escalabilidad, disponibilidad y seguridad.
+
+## Arquitectura
+
 ## Construido Con. 
 
 - Maven - Administrador de dependencias
+
 
   
 ## Autores 
