@@ -151,7 +151,15 @@ Seguridad de los endpoints:
 
 ## Video de despliegue
 
-[![IMAGE ALT TEXT HERE](https://img.youtube.com/vi/zCY--eJsZdk/0.jpg)](https://www.youtube.com/watch?v=zCY--eJsZdk)
+
+https://github.com/Mateo0laya/AREP-Lab8-Microservices/assets/63562181/761916a3-4c02-431e-a7d3-d4758f5c020f
+
+
+## Video pruebas
+
+https://github.com/Mateo0laya/AREP-Lab8-Microservices/assets/63562181/8f81e294-5ab3-4eba-b2af-53248e09432d
+
+
 
 ## Construido Con. 
 
