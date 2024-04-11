@@ -78,6 +78,10 @@ A continuación, se describe la arquitectura de la aplicación en Amazon Web Ser
 
 ## Arquitectura
 
+![image](https://github.com/Mateo0laya/AREP-Lab8-Microservices/assets/63562181/c0b57c98-eecd-4592-bf3c-4b620216a969)
+
+
+
 ## Construido Con. 
 
 - Maven - Administrador de dependencias
