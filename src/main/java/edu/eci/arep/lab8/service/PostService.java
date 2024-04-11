@@ -10,7 +10,11 @@ import jakarta.enterprise.context.ApplicationScoped;
 @ApplicationScoped
 public class PostService {
 
-    private Stream stream = new Stream();
+    private final Stream stream;
+
+    public PostService() {
+        this.stream = new Stream();
+    }
 
     /** 
     public static String getAllPosts(){
@@ -32,10 +36,14 @@ public class PostService {
     **/  
 
     public List<Post> getPosts(){
+        System.out.println("Get");
+        System.out.println(stream.getPosts().toString());
         return stream.getPosts();
     }
 
     public Post savePost(Post post){
+        System.out.println("Save");
+        System.out.println(stream.getPosts().toString());
         return stream.add(post);
     }
 }

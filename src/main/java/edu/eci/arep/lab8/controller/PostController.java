@@ -12,7 +12,8 @@ import jakarta.ws.rs.core.Response;
 @Path("/posts")
 public class PostController {
 
-    private PostService postService = new PostService();
+    @Inject
+    PostService postService;
     
 
     @POST

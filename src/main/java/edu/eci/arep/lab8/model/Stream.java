@@ -9,19 +9,14 @@ public class Stream {
 
     public Stream(){}
 
-
-    private ArrayList<Post> posts = new ArrayList<>();
-
-    public Stream(ArrayList<Post> posts) {
-        this.posts = posts;
-    }
+    private ArrayList<Post> posts = new ArrayList<Post>();
 
     public Post add(Post post){
         posts.add(post);
         return post;
     }
 
-    public List<Post> getPosts() {
+    public ArrayList<Post> getPosts() {
         return posts;
     }
 
