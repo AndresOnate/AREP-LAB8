@@ -71,3 +71,13 @@ Ingrese la mensaje a postear:
 De clic en el botón `Postear`,  podrá observar que los mensajes se muestran en la parte inferior.
 
 ![image](https://github.com/Mateo0laya/AREP-Lab8-Microservices/assets/63562181/48eda60a-5e4b-4289-ad2d-2cfe5f708ba8)
+
+## Construido Con. 
+
+- Maven - Administrador de dependencias
+
+  
+## Autores 
+
+## Versión
+1.0.0
