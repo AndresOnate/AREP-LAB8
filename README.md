@@ -7,7 +7,7 @@ Se ha implementado como un monolito inicialmente, luego dividido en tres microse
 
 La aplicación está diseñada para cumplir con los requisitos especificados en el enunciado del taller y proporcionar una experiencia de usuario fluida y satisfactoria.
 El primer paso para el desarrollo de este laboratorio, fue la implementación de un monolito haciendo uso del
-frameworj Quarkus.  A continuación, se describen los principales componentes y características de la aplicación:
+framework Quarkus.  A continuación, se describen los principales componentes y características de la aplicación:
 
 - Se implementaron tres entidades fundamentales para el sistema: `Post`, `Stream` y `User`. 
 
@@ -15,7 +15,7 @@ frameworj Quarkus.  A continuación, se describen los principales componentes y 
 
 - La clase `Stream` encapsula una colección de posts, ofreciendo métodos para agregar y obtener posts. 
 
-- La clase `User` proporciona la estructura necesaria para representar a los usuarios del sistema, incluyendo atributos como el nombre de usuario y la contraseña. Estos objetos User son fundamentales para identificar a los propietarios de los posts.
+- La clase `User` proporciona la estructura necesaria para representar a los usuarios del sistema, incluyendo atributos como el nombre de usuario y la contraseña. Estos objetos `User` son fundamentales para identificar a los propietarios de los posts.
 
 - La clase `PostController` es un controlador REST diseñado para manejar las solicitudes relacionadas con la entidad `Post`.
   Dentro de esta clase, se encuentra el método `savePost`,  el cual se encarga de recibir las solicitudes de los usuarios para publicar posts en el sistema y guardar la información en la capa de persistencia correspondiente. 
@@ -83,10 +83,10 @@ A continuación, se describe la arquitectura de la aplicación en Amazon Web Ser
 
 ## Funciones Lambda
 
-Se desplegaron dos microservicios utilizando funciones Lambda de AWS. Estos microservicios establecen conexión con una base de datos MongoDB para almacenar y gestionar los datos de la aplicación.
+Se desplegaron dos microservicios utilizando funciones Lambda de AWS. Estos microservicios establecen conexión con una base de datos `MongoDB` para almacenar y gestionar los datos de la aplicación.
 Para cada uno de los microservicios, se compiló el proyecto ubicado en la rama `cloud` del repositorio para generar un JAR con todas las dependencias necesarias para su despliegue en AWS Lambda.
 
-`post-function`: Esta función Lambda implementa la lógica para almacenar los posts en la base de datos MongoDB. Cuando se invoca, recibe un nuevo post como entrada y lo guarda en la base de datos para su posterior recuperación y visualización. Es responsable de asegurar que los posts enviados por los usuarios se almacenen correctamente en la base de datos para su uso posterior. Se mapeó el método `savePost` de la clase `PostController` para este microservicio.
+`post-function`: Esta función Lambda implementa la lógica para almacenar los posts en la base de datos `MongoDB`. Cuando se invoca, recibe un nuevo post como entrada y lo guarda en la base de datos para su posterior recuperación y visualización. Es responsable de asegurar que los posts enviados por los usuarios se almacenen correctamente en la base de datos para su uso posterior. Se mapeó el método `savePost` de la clase `PostController` para este microservicio.
 
 ![image](https://github.com/Mateo0laya/AREP-Lab8-Microservices/assets/63562181/a87a4660-76fa-4e39-ab0f-1e6afebbb29b)
 
