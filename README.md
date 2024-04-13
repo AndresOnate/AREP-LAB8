@@ -1,7 +1,7 @@
 # TALLER DE MICROSERVICIOS
 
 En este taller se implementó un sistema de publicación de posts de hasta 140 caracteres, similar al funcionamiento de Twitter. El sistema está construido utilizando Quarkus, un framework de Java diseñado para aplicaciones nativas en la nube. 
-Se ha implementado como un monolito inicialmente, luego dividido en tres microservicios independientes utilizando AWS Lambda.
+Se ha implementado como un monolito inicialmente, luego dividido en tres microservicios independientes utilizando AWS Lambda y AWS Cognito.
 
 ## Diseño de la aplicación 
 
