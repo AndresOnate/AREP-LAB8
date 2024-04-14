@@ -151,7 +151,7 @@ Seguridad de los endpoints:
 ![image](https://github.com/Mateo0laya/AREP-Lab8-Microservices/assets/63562181/b8918c24-5937-476b-88e5-82263248ec8d)
 
 
-## Video de despliegue
+## Video Despliegue en AWS
 
 
 
@@ -159,7 +159,7 @@ https://github.com/Mateo0laya/AREP-Lab8-Microservices/assets/63562181/ff4e0289-0
 
 
 
-## Video pruebas
+## Video Pruebas
 
 https://github.com/Mateo0laya/AREP-Lab8-Microservices/assets/63562181/ae10f351-6f17-4b14-a954-f5187f661af9
 
