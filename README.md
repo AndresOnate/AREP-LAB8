@@ -170,5 +170,8 @@ https://github.com/Mateo0laya/AREP-Lab8-Microservices/assets/63562181/ae10f351-6
 
 ## Autores 
 
+- Nicolas Ariza Barbosa
+- Andrés Camilo Oñate Quimbayo
+
 ## Versión
 1.0.0
