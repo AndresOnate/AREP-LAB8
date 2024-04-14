@@ -44,7 +44,7 @@ Las siguientes instrucciones le permitirán descargar una copia y ejecutar la ap
 2. Navegue al directorio del proyecto:
 
 ```shell script
-  cd AREP-Lab8-Microservices
+  cd AREP-LAB8
 ```
 
 3. Ejecute el siguiente comando para compilar el código:
