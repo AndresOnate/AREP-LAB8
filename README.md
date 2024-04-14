@@ -125,18 +125,23 @@ Habilitamos el alojamiento de un sitio web estático:
 
 ## Amazon Cognito
 
-En nuestra aplicación, utilizamos Amazon Cognito para gestionar la autenticación de usuarios antes de que accedan al sitio web estático alojado en Amazon S3. Cuando un usuario intenta acceder al sitio web, lo redirigimos a una página de inicio de sesión vinculada a Amazon Cognito. Allí, el usuario proporciona sus credenciales de inicio de sesión y Amazon Cognito valida estas credenciales. Si son válidas, el usuario recibe un token de acceso que lo identifica. Con este token, el usuario es redirigido de vuelta al sitio web estático, donde el token se utiliza para validar su acceso y permitirle interactuar con la aplicación web estática de acuerdo con sus permisos. Esto garantiza que solo los usuarios autenticados puedan acceder al contenido y las funcionalidades de nuestra aplicación web estática.
-Creamos un grupo de usuarios `not-twitter-users-group`
+En nuestra aplicación, utilizamos Amazon Cognito para gestionar la autenticación de usuarios antes de que accedan al sitio web estático alojado en Amazon S3. 
+
+Para lograr este diseño se creo un grupo de usuarios llamado `not-twitter-users-group`
 
 ![image](https://github.com/Mateo0laya/AREP-Lab8-Microservices/assets/63562181/e793c103-4043-4074-9477-23ffd62d148d)
 
-Configuramos un cliente de aplicación en Amazon Cognito para facilitar la autenticación y gestión de usuarios
+Luego de autenticarse en un portal integrado por este servicio, se realiza la redirección al sitio web estatico enviando un token JWT en la URL del mismo.
 
 ![image](https://github.com/Mateo0laya/AREP-Lab8-Microservices/assets/63562181/737ddbb4-3fe3-4adb-850b-6f3d72d012a4)
 
-Configuramos la autenticación a través de Amazon Cognito antes de mostrar la interfaz de usuario estática, asegurando que solo los usuarios autenticados puedan acceder al contenido y las funcionalidades de la aplicación:
-
 ![image](https://github.com/Mateo0laya/AREP-Lab8-Microservices/assets/63562181/72c8128a-d656-4d40-87fc-57b85e49a182)
+
+
+Dicho token es esencial para poder consumir los servicios del back (endpoints del API Gateway). Para consultarlo desde la URL se ha modificado el JavaScript para que lea la URL, extraiga este token y lo almacene de tal forma que lo use cada vez que se consulten los servicios del back.
+
+Con esto se asegura que solo aquellos agentes autorizados sean capaces de consumir los servicios de la solución.
+
 
 ## API Gateway 
 
@@ -157,7 +162,6 @@ Seguridad de los endpoints:
 
 
 ## Video Despliegue en AWS
-
 
 
 https://github.com/Mateo0laya/AREP-Lab8-Microservices/assets/63562181/ff4e0289-073e-4905-a7d1-9ce215617706
