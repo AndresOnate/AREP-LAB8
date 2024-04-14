@@ -1,36 +1,28 @@
 package edu.eci.arep.lab8.model;
 
-import java.util.Iterator;
-import java.util.Stack;
+import org.jboss.logging.annotations.Pos;
+
+import java.util.ArrayList;
+import java.util.List;
 
 public class Stream {
 
-    private Stack<Post> stream;
+    public Stream(){}
 
-    public Stream() {
-        stream = new Stack<>();
+    private ArrayList<Post> posts = new ArrayList<Post>();
+
+    public Post add(Post post){
+        posts.add(post);
+        return post;
     }
 
-    public void addPost(Post post) {
-        stream.push(post);
+    public ArrayList<Post> getPosts() {
+        return posts;
     }
 
-    public String toJSON() {
-        String res = "";
-        if (!stream.empty()){
-            res = "[";
-            Iterator<Post> iterator = stream.iterator();
-            // Se extraen los posts y se agregan a una coleccion JSON
-            while (iterator.hasNext()) { 
-                Post post = iterator.next();
-                res += "{\"owner\":\"" + post.getOwner().getUsername() + "\"," +
-                            "\"content\":\"" + post.getContent() + "\"},";
-            }
-            // Se elimina la utlima coma restante --> ...},
-            res = res.substring(0, res.length() - 1);
-            // Se cierra el JSON
-            res += "]";
-        }
-        return res;
+    public void setPosts(ArrayList<Post> posts) {
+        this.posts = posts;
     }
+
+
 }
