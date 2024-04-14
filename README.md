@@ -109,14 +109,13 @@ El uso de funciones Lambda de AWS permite una arquitectura sin servidor, escalab
 
 ## Amazon S3
 
-Utilizamos Amazon S3 para almacenar nuestros archivos estáticos, como HTML, CSS, JavaScript e imágenes. Esto nos permite distribuir y servir estos archivos de manera eficiente a través de internet para nuestra aplicación web. Creamos un bucket `bucket-not-twitter` para nuestra aplicación:
+Utilizamos Amazon S3 para almacenar nuestros archivos estáticos, como HTML, CSS y JavaScript. Esto nos permite distribuir y servir estos archivos de manera eficiente a través de internet para nuestra aplicación web. Creamos un bucket `bucket-not-twitter` para nuestra aplicación:
 
 ![image](https://github.com/Mateo0laya/AREP-Lab8-Microservices/assets/63562181/5a035e79-5483-4e95-9c13-778e0ddd88ff)
 
 Habilitamos el alojamiento de un sitio web estático:
 
 ![image](https://github.com/Mateo0laya/AREP-Lab8-Microservices/assets/63562181/24891e4d-faab-409b-b0d1-f1b325c25f92)
-
 
 
 ## Amazon Cognito
@@ -126,7 +125,11 @@ Creamos un grupo de usuarios `not-twitter-users-group`
 
 ![image](https://github.com/Mateo0laya/AREP-Lab8-Microservices/assets/63562181/e793c103-4043-4074-9477-23ffd62d148d)
 
+Configuramos un cliente de aplicación en Amazon Cognito para facilitar la autenticación y gestión de usuarios
+
 ![image](https://github.com/Mateo0laya/AREP-Lab8-Microservices/assets/63562181/737ddbb4-3fe3-4adb-850b-6f3d72d012a4)
+
+Configuramos la autenticación a través de Amazon Cognito antes de mostrar la interfaz de usuario estática, asegurando que solo los usuarios autenticados puedan acceder al contenido y las funcionalidades de la aplicación:
 
 ![image](https://github.com/Mateo0laya/AREP-Lab8-Microservices/assets/63562181/72c8128a-d656-4d40-87fc-57b85e49a182)
 
@@ -136,12 +139,9 @@ En nuestra aplicación, hemos configurado el Gateway de API de AWS para actuar c
 
 ![image](https://github.com/Mateo0laya/AREP-Lab8-Microservices/assets/63562181/f29747fd-42c7-4af9-a596-fe147f9d3b49)
 
-Esto nos permite gestionar las solicitudes HTTP entrantes de manera efectiva. Al definir recursos y métodos dentro de nuestra API, hemos establecido la estructura y el comportamiento de la interfaz que nuestra aplicación ofrece a los usuarios. Luego, hemos asignado nuestras funciones Lambda específicas para manejar estas solicitudes entrantes, asegurándonos de que cada solicitud se dirija al código adecuado para su procesamiento. 
+Al definir recursos y métodos dentro de nuestra API, hemos establecido la estructura y el comportamiento de la interfaz que nuestra aplicación ofrece a los usuarios. Luego, hemos asignado nuestras funciones Lambda específicas para manejar estas solicitudes entrantes, asegurándonos de que cada solicitud se dirija al código adecuado para su procesamiento. 
 
 ![image](https://github.com/Mateo0laya/AREP-Lab8-Microservices/assets/63562181/c87d4f22-57d3-4be0-b01d-19322d634814)
-
-
-Por ejemplo, cuando un usuario envía una solicitud POST al recurso "/posts", esta solicitud se enruta a nuestra función Lambda savePost, la cual se encarga de procesar y almacenar el nuevo post. Este enfoque nos ha permitido construir una interfaz de API robusta y escalable, proporcionando una experiencia fluida para nuestros usuarios mientras manejan las diversas funcionalidades de nuestra aplicación.
 
 Seguridad de los endpoints:
 
@@ -149,6 +149,7 @@ Seguridad de los endpoints:
 
 
 ![image](https://github.com/Mateo0laya/AREP-Lab8-Microservices/assets/63562181/b8918c24-5937-476b-88e5-82263248ec8d)
+
 
 ## Video de despliegue
 
