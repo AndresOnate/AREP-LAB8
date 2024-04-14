@@ -58,6 +58,11 @@ Las siguientes instrucciones le permitirán descargar una copia y ejecutar la ap
   mvn compile quarkus:dev
 ```
 
+Debería ver algo así en consola:
+
+![image](https://github.com/AndresOnate/AREP-LAB8/assets/63562181/20cc2d3e-d48f-4a23-bb3d-0d3359649058)
+
+
 ## Probando la Aplicación.
 
 Ingrese a la siguiente URL para ingresar a el cliente: `http://localhost:8080/index.html`.
