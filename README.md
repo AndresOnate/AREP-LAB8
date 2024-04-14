@@ -39,7 +39,7 @@ Las siguientes instrucciones le permitirán descargar una copia y ejecutar la ap
 1. Ubíquese sobre el directorio donde desea realizar la descarga y ejecute el siguiente comando:
 
 ```shell script
-  git clone https://github.com/Mateo0laya/AREP-Lab8-Microservices.git 
+  git clone https://github.com/AndresOnate/AREP-LAB8.git
 ```
 2. Navegue al directorio del proyecto:
 
