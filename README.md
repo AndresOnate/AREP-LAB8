@@ -125,7 +125,7 @@ Habilitamos el alojamiento de un sitio web estático:
 
 ## Amazon Cognito
 
-En nuestra aplicación, utilizamos Amazon Cognito para gestionar la autenticación de usuarios antes de que accedan al sitio web estático alojado en Amazon S3. Cuando un usuario intenta acceder al sitio web, lo redirigimos a una página de inicio de sesión vinculada a Amazon Cognito. Allí, el usuario proporciona sus credenciales de inicio de sesión y Amazon Cognito valida estas credenciales. Si son válidas, el usuario recibe un token de acceso que lo identifica. Con este token, el usuario es redirigido de vuelta al sitio web estático, donde el token se utiliza para validar su acceso y permitirle interactuar con la aplicación web estática de acuerdo con sus permisos. Esto garantiza que solo los usuarios autenticados puedan acceder al contenido y las funcionalidades de nuestra aplicación web estática.
+En nuestra aplicación, utilizamos Amazon Cognito para gestionar la autenticación de usuarios antes de que accedan al sitio web estático alojado en Amazon S3. Cuando un usuario intenta acceder al sitio web, lo redirigimos a una página de inicio de sesión vinculada a Amazon Cognito. Allí, el usuario proporciona sus credenciales de inicio de sesión y Amazon Cognito valida estas credenciales. Si son válidas, el usuario recibe un token de acceso que lo identifica. Con este token, el usuario es redirigido de vuelta al sitio web estático, donde el token se utiliza para validar su acceso y permitirle interactuar con la aplicación web estática de acuerdo con sus permisos. 
 
 Para lograr este diseño se creo un grupo de usuarios llamado `not-twitter-users-group`
 
